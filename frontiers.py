@@ -1,8 +1,7 @@
 # frontiers.py
 # ----------------
-# COMP3620/6320 Artificial Intelligence
-# The Australian National University
-# For full attributions, see attributions.txt on Wattle at the end of the course.
+# Generic Data-Structures
+# mighty-botter
 
 """ This file contains data structures useful for representing search frontiers
     for your depth-first, breadth-first, and a-star search algorithms (Q1-3).
