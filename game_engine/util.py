@@ -1,8 +1,7 @@
 # util.py
 # --------------
-# COMP3620/6320 Artificial Intelligence
-# The Australian National University
-# For full attributions, see attributions.txt on Wattle at the end of the course
+# Artificial Intelligence
+# mighty-botter
 
 """ Data useful things. You should not need to look at this at all.
 
@@ -16,8 +15,7 @@ import random
 # FIXME
 # NOTE: TimeoutFuncton is NOT reentrant.  Later timeouts will silently
 # disable earlier timeouts.  Could be solved by maintaining a global list
-# of active time outs.  Currently, questions which have test cases calling
-# this have all student code so wrapped.
+# of active time outs.
 #
 import signal
 import sys
