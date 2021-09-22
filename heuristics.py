@@ -1,8 +1,7 @@
 # heuristics.py
 # ----------------
-# COMP3620/6320 Artificial Intelligence
-# The Australian National University
-# For full attributions, see attributions.txt on Wattle at the end of the course
+# Artificial Intelligence
+# mighty-botter
 
 """ This class contains heuristics which are used for the search procedures that
     you write in search_strategies.py.
