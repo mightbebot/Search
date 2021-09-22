@@ -1,8 +1,7 @@
 # text_display.py
 # ----------------
-# COMP3620/6320 Artificial Intelligence
-# The Australian National University
-# For full attributions, see attributions.txt on Wattle at the end of the course
+# Artificial Intelligence
+# mighty-botter
 
 """ This file defines a text alternative to the graphical display that the
     system usually runs with. If you want to use it run
