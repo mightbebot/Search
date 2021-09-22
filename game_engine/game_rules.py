@@ -1,8 +1,7 @@
 # game_rules.py
 # --------------
-# COMP3620/6320 Artificial Intelligence
-# The Australian National University
-# For full attributions, see attributions.txt on Wattle at the end of the course
+# Artificial Intelligence
+# mighty-botter
 
 """ This file defines the rules of the game being played and the rules for both
     the red bird and the black bird.
