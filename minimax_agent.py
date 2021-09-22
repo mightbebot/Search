@@ -1,16 +1,9 @@
 # minimax_agent.py
 # --------------
-# COMP3620/6320 Artificial Intelligence
-# The Australian National University
-# For full attributions, see attributions.txt on Wattle at the end of the course
+# Artificial Intelligence
+# mighty-botter
 
-"""
-    Enter your details below:
 
-    Name: Tanmay Negi
-    Student ID: u6741351
-    Email: u6741351@anu.edu.au
-"""
 
 from typing import Tuple
 import operator
