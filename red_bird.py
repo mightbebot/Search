@@ -1,8 +1,7 @@
 # red_bird.py
 # ----------------
-# COMP3620/6320 Artificial Intelligence
-# The Australian National University
-# For full attributions, see attributions.txt on Wattle at the end of the course
+# Artificial Intelligence
+# mighty-botter
 
 """ This is the main file of the program. It holds the logic for the classic
     red bird game along with the main code to run a game.
