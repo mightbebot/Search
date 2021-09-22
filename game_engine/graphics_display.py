@@ -1,8 +1,7 @@
 # graphics_display.py
 # --------------
-# COMP3620/6320 Artificial Intelligence
-# The Australian National University
-# For full attributions, see attributions.txt on Wattle at the end of the course
+# Artificial Intelligence
+# mighty-botter
 
 """ This file uses graphics_utils to draw the game onto the screen.
 
@@ -231,7 +230,7 @@ class RedBirdGraphics:
         begin_graphics(screen_width,
                        screen_height,
                        BACKGROUND_COLOR,
-                       "COMP3620/6320 Search")
+                       "AI-Search")
 
     def draw_red_bird(self, pos):
         """ Draw the red bird in the given position.
