@@ -1,10 +1,6 @@
-"""
-    Enter your details below:
-
-    Name: Tanmay Negi
-    Student ID: u6741351
-    Email: u6741351@anu.edu.au
-"""
+# brfs_search.py
+# mighty-botter
+# Artificial-Intelligence
 
 from typing import List
 
