@@ -1,8 +1,8 @@
 # agents.py
 # ----------------
-# COMP3620/6320 Artificial Intelligence
-# The Australian National University
-# For full attributions, see attributions.txt on Wattle at the end of the course
+# Artificial Intelligence
+# mighty-botter
+
 
 """ This file defines a set of Agents which interact with the system via actions.
     All of the agents defined in the program extend the class Agent.
