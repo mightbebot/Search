@@ -1,17 +1,17 @@
 # Implementation details: The Fundamentals
 
 This part of the handout explains some basic facts and concepts you need to be
-familiar with in order to complete the tasks in the assignment. Skip it at your
+familiar with in order to complete the tasks. Skip it at your
 own risk!
 
 ## The search infrastructure for the single-agent collecting birds problem
 
-Your search algorithms needs to return a list of actions that reaches
+Our search algorithms needs to return a list of actions that reaches
 the goal from the start state in the given problem. The elements of this list
 need to be one or more references to the attributes `NORTH`, `SOUTH`, `EAST`
 and `WEST` of the class [`Directions`](../game_engine/actions.py).
 
-Your search algorithms will be passed as an argument an instance of either the
+Our search algorithms will be passed as an argument an instance of either the
 class [SearchProblem](../search_problems.py) or one of its subclasses. The
 arguments will be instances of `PositionSearchProblem` (collecting a single
 bird) or `MultiplePositionSearchProblem` (collecting all the birds).
