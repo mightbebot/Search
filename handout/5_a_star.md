@@ -1,13 +1,13 @@
-# Question 3: A\* Search
+# Task 3: A\* Search
 
-## _An Informed Search Algorithm_ (20 Marks)
+## _An Informed Search Algorithm_
 
-### What We Expect You To Do
+### Expectation
 
 Implement the A\* search algorithm inside the `solve()` function in
 [`a_star_search.py`](../a_star_search.py).
 
-Your A\* search will use the heuristic contained in the `heuristic` argument
+A\* search will use the heuristic contained in the `heuristic` argument
 passed to the `solve()` function in [`a_star_search.py`](../a_star_search.py).
 The heuristics take a state and return an estimate of the cost to reach the
 goal from that state. The heuristics are defined in
@@ -21,7 +21,7 @@ we include three heuristics:
 - and the Euclidean distance heuristic,
   `h(s) = sqrt( |x(s) - x(G)|^2 + |y(s) - y(G)|^2 )`.
 
-Your implementation of A\* needs to have **all** of the following properties:
+Implementation of A\* needs to have **all** of the following properties:
 
 1. It implements graph search rather than tree search.
 2. It returns a **valid** sequence of actions. That is, all moves are legal and
@@ -31,9 +31,7 @@ Your implementation of A\* needs to have **all** of the following properties:
    heuristic)
 4. It visits states in the **right** order. That is, it expands nodes with
    smaller f-values first.
-5. Your implementation is not substantially slower than our solution over the
-   maps `anuSearch`, `aiSearch` and `mazeSearch`.
-6. When given an admissible heuristic (which is not necessarily consistent),
+5. When given an admissible heuristic (which is not necessarily consistent),
    your A\* search must return an optimal solution.
 
 The times and costs of optimal solutions with our implementation on the three
@@ -76,11 +74,6 @@ Replace `manhattan` with `euclidean` to change the heuristic.
 4. When you need to find the heuristic value of a state, the usage of the
    heuristic will typically be of the form `heuristic_value = heuristic(state, problem)`.
 
-### What to Submit
-
-You need to include in your submission the file `a_star_search.py` with your
-implementation of A\*. Please, remember to fill in your details in the comments
-at the start of the file.
 
 Once you've finished, you can move to the [next section](6_heuristics.md) or go
 back to the [index](README.md).
