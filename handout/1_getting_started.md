@@ -6,11 +6,11 @@ Contents:
 2. [Capturing Many Yellow Birds](#capturing-many-yellow-birds)
 3. [Competing With an Adversary](#competing-with-an-adversary)
 
-We will start this Assignment by having you solve _manually_ three tasks.
+We will start by having you solve _manually_ three tasks.
 
 ## Capturing One Yellow Bird
 
-Open up a console and navigate to the assignment folder and type the following
+Open up a console and navigate to the _root_ folder and type the following
 command:
 
 ```
@@ -19,9 +19,9 @@ python3 red_bird.py -l search_layouts/anuSearch.lay
 
 and the screen below should pop up:
 
-![ANU Search initial state](images/getting_started_anu_search.png)
+![Search initial state](images/getting_started_anu_search.png)
 
-The first task you'll encounter during the assignment is a simple navigation
+The first task you'll encounter is a simple navigation
 problem. That is, how to get the red bird (the red circle) to the position of
 the yellow bird (the yellow triangle) as fast as possible. Here "as fast as
 possible" means that the agent is to _minimize the number of moves done_ to
@@ -102,7 +102,7 @@ python3 red_bird.py -l search_layouts/anuMultiSearch.lay
 
 and the screen below should pop up:
 
-![ANU Search initial state](images/getting_started_anu_multi_search.png)
+![Search initial state](images/getting_started_anu_multi_search.png)
 
 We can see that several yellow birds are now scattered all over the place. If
 you try to move the red bird around, you'll see that although the agent can do
