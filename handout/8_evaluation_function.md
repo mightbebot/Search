@@ -74,3 +74,5 @@ python3 red_bird.py -p MinimaxAgent -l adv_search_layouts/<map>.lay -a depth=<d>
 
 And that's it! You've completed the project and equipped yourself with naive AI tools.
 Now you are welcome make your first step towards [Night-City](https://pjreddie.com/darknet/):-)
+
+###### Remember [Software is like sex; it's better when FREE](https://www.reddit.com/r/ProgrammerHumor/comments/61z972/software_is_like_sex_its_better_when_its_free_if/)
