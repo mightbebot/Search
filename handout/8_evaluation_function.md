@@ -72,4 +72,5 @@ python3 red_bird.py -p MinimaxAgent -l adv_search_layouts/<map>.lay -a depth=<d>
    being realistic about its possibilities and possible winning strategies may
    be pruned away.
 
-And that's it! You've completed the project and equipped your self with naive AI tools :-)
+And that's it! You've completed the project and equipped your self with naive AI tools.
+Now you are welcome to join Night-City:-)
