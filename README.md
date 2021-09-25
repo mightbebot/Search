@@ -2,9 +2,8 @@
 
 This is the GitHub repository for AI algorithms where we will demonstrate several search algorithms over pac-man type game.
 
-1. Click the `Fork` button at the top of the page to fork the repo.
-2. If asked for a namespace, choose your name.
-3. As you go through the project, only these files are expected to be modified:
+1. Click the `Fork` button at the top of the page or `Clone` the repo.
+2. As you go through the project, only these files are expected to be modified:
    - `a_star_search.py`
    - `brfs_search.py`
    - `eval_function.results.md`
