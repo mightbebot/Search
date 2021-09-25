@@ -1,4 +1,4 @@
-# Question 6: Evaluation Functions for Two-Player Games (15 Marks)
+# Task 6: Evaluation Functions for Two-Player Games
 
 Improve upon your Minimax agent by implementing a strong _evaluation function_
 for this game. The evaluation function will be invoked when the search cannot
@@ -72,4 +72,4 @@ python3 red_bird.py -p MinimaxAgent -l adv_search_layouts/<map>.lay -a depth=<d>
    being realistic about its possibilities and possible winning strategies may
    be pruned away.
 
-And that's it! You've completed the assignment :-)
+And that's it! You've completed the project equipped your self with naive AI tools :-)
