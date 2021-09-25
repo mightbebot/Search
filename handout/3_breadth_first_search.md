@@ -1,6 +1,6 @@
 # Task 1: Breadth-First Search
 
-## _The Simplest Uninformed/Blind Search Algorithm_ (15 Marks)
+## _The Simplest Uninformed/Blind Search Algorithm_
 
 ### What We Expect from algorithm to do:
 
