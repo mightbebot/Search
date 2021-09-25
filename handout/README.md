@@ -56,7 +56,7 @@ version, you might get `SyntaxError: invalid syntax` on the type annotations.
 
 ## Walkthrough
 
-1. [Getting Started: The Search Problems](../README.md)
+1. [Getting Started: The Search Problems](../README.md/#getting-started)
 2. [Implementing Search Algorithms: The Fundamentals](2_implementation_notes.md)
 3. [Question 1: Breadth-First Search (difficulty: **---)](3_breadth_first_search.md)
 4. [Question 2: Iterative Deepening Search (difficulty: **---)](4_iterative_deepening_search.md)
