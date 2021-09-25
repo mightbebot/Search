@@ -1,4 +1,4 @@
-Search
+# Search
 
 This is the GitHub repository for AI algorithms where we will demonstrate several search algorithms over pac-man type game.
 
@@ -13,7 +13,7 @@ This is the GitHub repository for AI algorithms where we will demonstrate severa
    - `minimax_agent.py`
 
 
-# Getting Started
+## Getting Started
 
 Contents:
 
