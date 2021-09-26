@@ -38,105 +38,120 @@ class MinimaxAgent(Agent):
         self.max_player = max_player
         self.depth = int(depth)
 
-
     def evaluation(self, problem: AdversarialSearchProblem, state: State) -> float:
         """
             (MinimaxAgent, AdversarialSearchProblem,
                 (int, (int, int), (int, int), ((int, int)), number, number))
                     -> number
-
-            This evaluation function takes three factor in account
-            score: the standard problem.utility(state)
-            factor1 : the euclidean_distance between red and black agent, higher the distance more the evaluated score
-            factor2 : number of surrounding states containing yellow_birds
-                      this gives high weightage to states whose successors state contains yellow_bird
-
-            calculated_score := score+yb_score*factor2+factor1
-
-            factor2 is multiplied by yb_score to represent the tradeoff between agent gaining score by yellow bird to it's chance to come close to blackbird 
+            Returned evaluation is sum of score + food_contribution + black_contribution
         """
         player, red_pos, black_pos, yellow_birds, score, yb_score = state
-        if problem.terminal_test(state):
-            return problem.utility(state)
-        score = problem.utility(state)
-        
-        
-        factor1 = euclidean_heuristic(pos1=red_pos,pos2=black_pos)
-        factor2 = 0 
-        
-        # factor3 = problem.maze_distance(pos1=red_pos,pos2=black_pos) # representing distance b/w red and black
-        
-        # method2
-        """
-        flag = 0
-        for succ,_,_ in problem.get_successors(state):
-            if succ[1] in yellow_birds:
-                factor2 = factor2 + 1
-            for nsucc,_,_ in problem.get_successors(succ):
-                if nsucc[1] == black_pos:
-                    flag = 1
-                    break
-        return score+yb_score*factor2 + flag*factor1   # takes factor1 in account only when black is twp 
-        """
+        evaluation = 0
 
+        remaining_birds_list = list(yellow_birds)
+        remaining_birds = len(remaining_birds_list)
 
-        return score+yb_score*factor2+flag*factor1
-        # return score + factor2 + yb_score*(factor1+factor3) 
+        # game over
+        if remaining_birds == 0:
+          return float("inf")
+        # total_prize = remaining_birds*yb_score # This shrinks rapidly 
+
+        # Reciprocal of average distance to birds is used, as on avg it will lead red closer to the food
+        bird_distances_from_current_position = [ 1.0 / problem.maze_distance(red_pos, each_location) for each_location in remaining_birds_list]
+        # nearest_bird_distance = min(bird_distances_from_current_position)
+        
+        # this is bounded at 10 
+        # food_contribution is 10 * avg of reciprocal distance
+        food_contribution = 10 * float(sum(bird_distances_from_current_position)) / len(bird_distances_from_current_position)
+
+        # If black is nearby is bad for red, so negative distance 
+        black_contribution = - problem.maze_distance(red_pos, black_pos) / 3.0
+
+        evaluation = score + food_contribution + black_contribution
+        return evaluation
 
     def maximize(self, problem: AdversarialSearchProblem, state: State,
                  current_depth: int, alpha=float('-inf'), beta=float('inf')) -> Tuple[float, str]:
-        """ This method return a pair (max_utility, max_action).
-            It implements alpha-beta pruning to limit expanded nodes
+        """ This method should return a pair (max_utility, max_action).
+            The alpha and beta parameters can be ignored if you are
+            implementing minimax without alpha-beta pruning.
         """
+        # Following the minimax with alpha-beta pruning algorithm from lecture slides 6 and 7 and textbook Chap 5, pg 170
+       
+        # Check if terminal state, return utility
+        if problem.terminal_test(state):
+            return problem.utility(state)
+        
+        # If cutoff reached return evaluation function
+        if current_depth == self.depth:
+            return self.evaluation(problem, state)
 
+        # Initialise action to return STOP if nothing found. v_max as -inf
+        max_value_v , max_action = float("-inf"), Directions.STOP
 
-        if problem.terminal_test(state) or current_depth==self.depth:
-            # return (problem.utility(state),Directions.STOP)
-            return (self.evaluation(problem=problem,state=state),Directions.STOP)
-        # move = None
-        # print("S")
-        maxEval = -np.inf
-        move = None
-        for succ,action,_ in problem.get_successors(state):
-            # print("c")
-            evl = self.minimize(problem=problem,state=succ,current_depth=current_depth+1,alpha=alpha,beta=beta)
-            #maxEval = max(maxEval,eval)
-            if evl>maxEval:
-                maxEval=evl
-                move = action # taggging move associated with max utility
-            alpha = max(alpha,evl)
-            if beta <= alpha:
-                break
-                
-        return (maxEval , move)
+        # To iterate over the successors of a given state s
+        # cost is 1 so not needed
+        for next_state, new_action, _ in problem.get_successors(state):
+            # Recursive call to min with the next state
+            current_evaluated_v = self.minimize(problem,next_state,current_depth+1)
 
+            # Keeping the highest evaluation and action only
+            if current_evaluated_v > max_value_v: 
+              max_value_v = current_evaluated_v
+              max_action = new_action
+            
+            # Alpha-beta pruning step
+            if max_value_v > beta:
+              # print("Pruned maxi")
+              return max_value_v
+            alpha = max(alpha,max_value_v) # Update alpha
+
+        # Polymorphic return
+        # For root node return the tuple required, 
+        # For non-root return the maximum evaluated v in the current branch
+        if current_depth > 0:
+            return max_value_v
+        else:
+            return (max_value_v , max_action)
 
 
     def minimize(self, problem: AdversarialSearchProblem, state: State,
                  current_depth: int, alpha=float('-inf'), beta=float('inf')) -> float:
-        """ This function  just return the minimum utility.
-            It implements alpha-beta pruning to limit expanded nodes
+        """ This function should just return the minimum utility.
+            The alpha and beta parameters can be ignored if you are
+            implementing minimax without alpha-beta pruning.
         """
-
-
-        if problem.terminal_test(state) or current_depth==self.depth:
-            # return problem.utility(state)
-            return self.evaluation(problem=problem,state=state)
+         # Check if terminal state, return utility
+        if problem.terminal_test(state):
+          # print("Terminal in mini", "curr depth:", current_depth, "self.depth", self.depth)
+            return problem.utility(state)
         
-        # without alpha-beta pruning
-        # return min([self.maximize(problem=problem,state=succ,current_depth=current_depth+1)[0] for succ,_,_ in problem.get_successors(state)])
-
-        # with alpha-beta pruning
-        minEval = np.inf
-        for succ,_,_ in problem.get_successors(state):
-            evl = self.maximize(problem=problem,state=succ,current_depth=current_depth+1,alpha=alpha,beta=beta)[0]
-            minEval = min(minEval,evl)
-            beta = min(beta,evl)
-            if beta <= alpha:
-                break
-        return minEval
-
+        # If cutoff reached return evaluation function
+        if current_depth == self.depth:
+          # print("cutoff mini")
+            return self.evaluation(problem, state)
         
+        # v_min as inf
+        min_value_v = float("inf")
+
+        # To iterate over the successors of a given state s
+        # cost is 1 so not needed
+        for next_state, _, _ in problem.get_successors(state):
+            
+            # Recursive call to max with the next state
+            current_evaluated_v = self.maximize(problem, next_state, current_depth + 1, alpha, beta)
+            
+            # Keeping the lowest evaluation only as that is min best move
+            if current_evaluated_v < min_value_v:
+              min_value_v = current_evaluated_v
+            
+            # Alpha-beta pruning step
+            if beta < alpha:
+              return beta
+            beta = min(beta, min_value_v) # Update beta
+        # Return the minimum v
+        return min_value_v
+
 
     def get_action(self, game_state):
         """ This method is called by the system to solicit an action from

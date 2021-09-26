@@ -10,7 +10,7 @@ from search_strategies import SearchNode
 from frontiers import Queue , Stack
 
 def solve(problem: SearchProblem) -> List[str]:
-    max_depth = 10000
+    max_depth = 100
     s = search(problem,max_depth)
     s.IIDS()
 
@@ -27,29 +27,58 @@ class Node(SearchNode):
 
 class search():
     def __init__(self,problem,depth):
-        self.network = Stack()
+        self.stack = None
         self.problem = problem
         self.max_depth   = depth
 
     def IIDS(self):
-        for d in range(self.max_depth):
-            self.network = Stack() # memory reset
+        for d in range(1, self.max_depth):
             r = self.DLS(d)
             if r == "cutoff":
                 print("no solution at depth",d)
                 continue
             if r == "goal":
                 print("goal found depth",d)
-                return
+                return 
         print("failure")
-        return
+        raise ValueError
 
+
+    # def DLS(self, current_depth):
+    #     visited = set()
+    #     self.stack = Stack() # memory reset
+    #     self.stack.push(SearchNode(state=self.problem.get_initial_state(), action=[], path_cost=0, parent=None, depth=0))
+
+    #     while not self.stack.is_empty():
+    #         currentNode = self.stack.pop()
+    #         if self.problem.goal_test(currentNode.state):
+    #             return "goal"
+
+    #         if currentNode.state not in visited:
+    #             visited.add(currentNode.state)
+    #             if currentNode.depth == current_depth:
+    #                 return "cutoff"
+    #             for succ, action, cost in self.problem.get_successors(currentNode.state):
+    #                 # wall check
+    #                 if self.problem.get_walls()[succ[0]][succ[1]]:
+    #                     continue
+
+                    
+    #                 if self.problem.goal_test(succ):
+    #                     return "goal"
+    #                 self.stack.push(SearchNode(state=succ, action=action,path_cost=currentNode.path_cost+cost, parent=currentNode, depth=currentNode.depth+1 ))
+
+    #     return "failure"
+                    
 
 
     def DLS(self,depth):
+        self.stack = Stack()
+        self.visited = set()
         return self.r_DLS(depth,Node(state=self.problem.get_initial_state()))
 
     def r_DLS(self,limit,node):
+        self.visited.add(node.state)
         if self.problem.goal_test(node.state): return "goal"
         if node.depth == limit: return "cutoff"
 
@@ -58,15 +87,16 @@ class search():
             if self.problem.get_walls()[succ[0]][succ[1]]:
                 continue
             # loop check
-            if self.network.find(lambda node: node.state == succ):
+            if succ in self.visited:
                 continue
 
+            self.visited.add(succ)
             succ = Node(state=succ,action=action,parent=node.state,depth=node.depth+1)
             
-            self.network.push(succ)
+            self.stack.push(succ)
             r = self.r_DLS(limit=limit,node=succ)
             if r == "cutoff":
-                garbage = self.network.pop()
+                garbage = self.stack.pop()
                 continue
             if r == "goal":
                 return r
@@ -75,8 +105,8 @@ class search():
 
     def path(self):
         actions = []
-        while not self.network.is_empty():
-            node = self.network.pop()
+        while not self.stack.is_empty():
+            node = self.stack.pop()
             actions.append(node.action)
         return actions[::-1]
 
