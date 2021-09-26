@@ -1,15 +1,15 @@
-# Question 1: Breadth-First Search
+# Task 1: Breadth-First Search
 
-## _The Simplest Uninformed/Blind Search Algorithm_ (15 Marks)
+## _The Simplest Uninformed/Blind Search Algorithm_
 
-### What We Expect You To Do
+### What We Expect from algorithm to do:
 
 Implement the Breadth-First Search (BrFS) algorithm inside the `solve()`
 function provided in the file [`brfs_search.py`](../brfs_search.py).
 Remember, BrFS expands the shallowest node on the frontier, i.e. newly
 generated nodes are placed on the frontier using a FIFO policy.
 
-Your implementation of BrFS needs to have **all** of the following properties:
+Implementation of BrFS needs to have **all** of the following properties:
 
 1. It implements graph search rather than tree search.
 2. It returns a **valid** sequence of actions: All moves are legal and the
@@ -17,11 +17,9 @@ Your implementation of BrFS needs to have **all** of the following properties:
 3. It visits states in the **right** order (see the description of BrFS in the
    lectures)
 4. It produces an **optimal** solution. i.e. the number of steps is minimal.
-5. Your implementation is not substantially slower than our solution over the
-   maps `anuSearch`, `aiSearch` and `mazeSearch`.
 
 To get an idea of how fast your implementation should run, here are the times
-of our solution on the three maps, `anuSearch`, `aiSearch` and `mazeSearch`:
+of our solution (in development phase) on the three maps, `anuSearch`, `aiSearch` and `mazeSearch`:
 
 | Problem    | Expanded | Time (secs) |
 | ---------- | -------- | ----------- |
@@ -72,12 +70,6 @@ Alternatively, if you're using Mac or Linux, you can run these shortcuts:
    this [blog post](https://blog.florimondmanca.com/why-i-started-using-python-type-annotations-and-why-you-should-too)
    for more information.
 
-### What to Submit
-
-You need to include in your submission the file `brfs_search.py` with your
-implementation of BrFS. Please, remember to fill in your details in the
-comments at the start of the file.
-
-Once you've finished, you can move to the
+Finished!!, you can move to the
 [next section](4_iterative_deepening_search.md) or go back to the
 [index](README.md).

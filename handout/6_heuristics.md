@@ -1,6 +1,6 @@
-# Question 4: Developing Heuristics
+# Task 4: Developing Heuristics
 
-## _Dealing with Multiple Goals_ (20 Marks)
+## _Dealing with Multiple Goals_
 
 Now the red bird has to collect all the yellow birds on the map! First, we will
 take a look at the performance of A* with the *null heuristic* `h(s)=0`
@@ -47,7 +47,7 @@ On our test machine, we get the following results with our implementation of A\*
 | smallMultiSearch | 60   | 16,688         | 0.2         |
 | mazeMultiSearch  | 215  | 534,496        | 7.1         |
 
-### Counting Birds (5 Marks)
+### Counting Birds (sub_task-1)
 
 The first admissible heuristic we will consider is given by the following formula:
 
@@ -78,7 +78,7 @@ This heuristic is indeed **admissible** but it is still not very
 **informative** because it completely abstracts the navigation problem away.
 The effect of this becomes stronger on the larger problems.
 
-### Come up with your heuristic! (15 Marks)
+### Come up with your heuristic! (sub_task-2)
 
 In this exercise you are requested to devise a much **more informative
 admissible** heuristic for the problem. This heuristic will be graded according
@@ -123,7 +123,7 @@ Hints:
 1. Your heuristic should not try to solve the original problem! It has to relax
    it to make it simpler so that the heuristic be efficiently computable. There
    is a tradeoff between efficiency and informativeness.
-2. There are many ways to relax the problem (see lectures for examples).
+2. There are many ways to relax the problem.
 3. The class `search_problems` contains a very interesting method that is
    called `maze_distance`. You may want to have a look into it.
 

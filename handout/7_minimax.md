@@ -1,6 +1,6 @@
-# Question 5: Minimax
+# Task 5: Minimax
 
-## _The Optimal Strategy (15 Marks)_
+## _The Optimal Strategy_
 
 Implement Minimax in the methods `maximize()` and `minimize()` of the class
 `MinimaxAgent` in [minimax_agent.py](../minimax_agent.py). This agent will be
@@ -9,7 +9,7 @@ tested over the Adversarial Search problem discussed in the
 [Implementing Search Algorithms: The Fundamentals](2_implementation_notes.md)
 you will find useful information meant to guide yourself through the code.
 
-Your implementation of Minimax needs to have **all** of the following
+Implementation of Minimax needs to have **all** of the following
 properties:
 
 1. Recursion on `maximize()` and `minimize()` stops whenever
@@ -85,7 +85,7 @@ solution for the next question.
 3. You need to return the utility at terminal states.
 4. The depth of a tree is the number of edges on the longest (direct) path from
    the root node to a leaf.
-5. Don't change the evaluation function just yet (that's the next question).
+5. Don't change the evaluation function just yet (that's the next task).
 6. Consider implementing minimax without alpha-beta pruning first. Then comment
    out this code and implement minimax with alpha-beta pruning. This way, in
    case your alpha-beta pruning impementation is incorrect, you can still get
